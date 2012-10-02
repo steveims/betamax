@@ -46,7 +46,6 @@ To use Betamax in a project using [Gradle][gradle] add the following to your `bu
 	    testCompile 'co.freeside:betamax:{{ page.version }}'
 	}
 
-
 ### Grails
 
 To use Betamax in a [Grails][grails] app add the following to your `grails-app/conf/BuildConfig.groovy` file:

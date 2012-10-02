@@ -4,48 +4,45 @@ $(document).ready(function() {
 	$('pre').addClass('prettyprint');
 	prettyPrint();
 
-	// fix nav when page is scrolled down past header
-	var nav = $('nav');
-	var calculateNavPos = function() {
-		return nav.parent('.sidebar').offset().top;
-	};
-	var navPos = calculateNavPos();
-	$(window).scroll(function(event) {
-		nav.toggleClass('fix', $(window).scrollTop() > navPos);
-	});
-	$(window).resize(function() {
-		navPos = calculateNavPos();
-	});
-
-	// wrap a container around each section we want to be a tab
-	$('#maven, #gradle, #grails, #junit, #spock').each(function() {
-		var tab = $('<li></li>', {
-			id:$(this).attr('id') + '-tab'
-		});
-		$(this).nextUntil('h1,h2,h3').andSelf().wrapAll(tab);
-		$(this).hide();
-	});
-
 	// wrap containers around each tab group
-	$('#maven-tab, #gradle-tab, #grails-tab').wrapAll('<ul class="tabs-content"></ul>');
-	$('#junit-tab, #spock-tab').wrapAll('<ul class="tabs-content"></ul>');
+
+	// wrap each tab in a .tab-pane
+	$('#maven, #gradle, #grails, #junit, #spock').each(function() {
+		$(this).nextUntil('h1, h2, h3').andSelf().wrapAll('<div class="tab-pane"></div>');
+	});
+
+	// move ids from tab headings to containing .tab-pane
+	$('.tab-pane h3').each(function() {
+		var id = $(this).attr('id');
+		$(this).removeAttr('id').parent().attr('id', id);
+	});
+
+	// wrap all contiguous .tab-pane elements in a .tab-content
+	$(':not(.tab-pane) + .tab-pane').each(function() {
+		$(this).nextUntil(':not(.tab-pane)').andSelf().wrapAll('<div class="tab-content"></div>');
+	});
 
 	// for each tab container, create nav links
-	$('.tabs-content').each(function() {
-		var tabs = $('<ul class="tabs"></ul>');
+	$('.tab-content').each(function() {
+		var tabs = $('<ul class="nav nav-tabs"></ul>');
 		$(this).children().each(function() {
 			var tab = $('<li></li>');
 			tab.append($('<a></a>', {
-				href:'#' + $(this).attr('id'),
-				text:$(this).find('h3').text()
-			}));
+				href: '#' + $(this).attr('id'),
+				text: $(this).find('h3').text(),
+				click: function(e) {
+					e.preventDefault();
+					$(this).tab('show');
+				}
+			}).data('toggle', 'tab'));
 			tabs.append(tab);
 		});
 		tabs.insertBefore(this);
 	});
 
 	// activate the first link & tab in each group
-	$('.tabs-content li:first-child, .tabs li:first-child a').addClass('active');
+	$('.nav-tabs li:first-child a').tab('show');
+//	$('.tab-content li:first-child, .tabs li:first-child a').addClass('active');
 
 	// replace h1 with fancier but less SEO-compliant text
 	$('h1, nav h2').html('&beta;etamax');
@@ -59,13 +56,6 @@ $(document).ready(function() {
 		$('.teaser').css('minHeight', maxTeaserHeight);
 	};
 	$(window).resize(forceEvenTeaserHeights);
-
-	// icons for personal links
-	$('#authors').next('p').find('a').each(function() {
-		$(this).addClass('icon').addClass($(this).text());
-	});
-
-	$(window).trigger('resize');
 
 	// FOUC prevention
 	$(window).load(function() {
