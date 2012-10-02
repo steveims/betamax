@@ -42,7 +42,6 @@ $(document).ready(function() {
 
 	// activate the first link & tab in each group
 	$('.nav-tabs li:first-child a').tab('show');
-//	$('.tab-content li:first-child, .tabs li:first-child a').addClass('active');
 
 	// replace h1 with fancier but less SEO-compliant text
 	$('h1, nav h2').html('&beta;etamax');
