@@ -11,3 +11,4 @@
 /examples/grails-betamax/target/
 *.log
 /.gradletasknamecache
+/src/docs/_site/
