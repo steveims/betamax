@@ -69,16 +69,28 @@ dl {
 }
 
 header {
-  // background-color: @grayDarker;
   #gradient > .vertical-three-colors(@grayDarker, @grayDark, 25%, @black);
 
   padding-top: 30px;
   padding-bottom: 30px;
   margin-bottom: 30px;
 
-  h1 {
-    font-family: 'Play', @sansFontFamily;
-    font-weight: 700;
+  .hero-unit {
+    h1 {
+      font-size: 80px;
+    }
+  }
+
+  .promos {
+    .makeRow();
+    .pod {
+      .box-sizing(border-box);
+      .makeColumn(4);
+      .well;
+      h3 {
+        font-size: 36px;
+      }
+    }
   }
 }
 
