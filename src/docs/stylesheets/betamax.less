@@ -1,5 +1,12 @@
 @import "bootstrap/bootstrap.less";
 
+#forkme {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 0;
+}
+
 nav.affix {
   top: 0;
 }
@@ -27,6 +34,15 @@ dl {
   section {
     .makeColumn(10);
   }
+}
+
+header {
+  // background-color: @grayDarker;
+  #gradient > .vertical-three-colors(@grayDarker, @grayDark, 25%, @black);
+
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 // FOUC prevention
