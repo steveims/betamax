@@ -302,7 +302,7 @@ Betamax is a JVM port of the [VCR][vcr] library for Ruby. It is named after _[Be
 
 ### Author
 
-Rob Fletcher [github][github] [twitter][twitter] [ad-hockery][adhockery]
+* [Rob Fletcher][github]
 
 ### Contributors
 

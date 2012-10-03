@@ -32,6 +32,22 @@
 @import "bootstrap/hero-unit.less";
 @import "bootstrap/utilities.less";
 
+code {
+  color: @gray;
+  padding: inherit;
+  border: none;
+  background-color: transparent;
+}
+
+code, pre {
+  font-size: @baseFontSize - 1;
+}
+
+dt code {
+  font-size: @baseFontSize;
+  font-weight: 400;
+}
+
 #forkme {
   position: absolute;
   top: 0;
@@ -41,6 +57,7 @@
 
 nav.affix {
   top: 0;
+  z-index: -1;
 }
 
 dl {
@@ -65,17 +82,29 @@ dl {
   }
   section {
     .makeColumn(10);
+    h2 {
+      .page-header;
+      &:first-child {
+        margin-top: 12px;
+      }
+    }
   }
 }
 
 header {
   #gradient > .vertical-three-colors(@grayDarker, @grayDark, 25%, @black);
+  .box-shadow(0 1px 4px rgba(0,0,0,.065));
 
   padding-top: 30px;
   padding-bottom: 30px;
   margin-bottom: 30px;
 
   .hero-unit {
+    background-image: url(../images/stripes.png);
+    background-position: -50px 0;
+    background-repeat: no-repeat;
+    .background-size(contain);
+    .box-shadow(0 1px 0 rgba(255, 255, 255, 0.1), 0 0 30px rgba(255, 255, 255, 0.4));
     h1 {
       font-size: 80px;
     }
@@ -87,9 +116,32 @@ header {
       .box-sizing(border-box);
       .makeColumn(4);
       .well;
+      .box-shadow(0 1px 0 rgba(255, 255, 255, 0.1), 0 0 30px rgba(255, 255, 255, 0.4));
       h3 {
         font-size: 36px;
       }
+    }
+  }
+}
+
+footer {
+  #gradient > .vertical(@navbarInverseBackgroundHighlight, @navbarInverseBackground);
+  margin-top: 24px;
+  padding-top: 12px;
+  font-family: @headingsFontFamily;
+  font-size: 20px;
+  color: @black;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .1), 0 0 30px rgba(255, 255, 255, .125);
+
+  a {
+    color: inherit;
+    font-size: 24px;
+    margin-left: 6px;
+    .transition(all .2s linear);
+    &:hover {
+      color: @navbarInverseLinkColorHover;
+      text-decoration: none;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, .1), 0 0 30px rgba(255, 255, 255, .4);
     }
   }
 }
