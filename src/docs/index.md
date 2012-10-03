@@ -300,27 +300,9 @@ Betamax is a JVM port of the [VCR][vcr] library for Ruby. It is named after _[Be
 
 [Apache Software Licence, Version 2.0][licence]
 
-### Author
-
-* [Rob Fletcher][github]
-
-### Contributors
-
-* [Marcin Erdmann](https://github.com/erdi)
-* [Lari Hotari](https://github.com/lhotari)
-* [Nobuhiro Sue](https://github.com/nobusue)
-
 ### Issues
 
 Please raise issues on Betamax's [GitHub issue tracker][issues]. Forks and pull requests are more than welcome.
-
-### Download
-
-You can download this project in either [zip](http://github.com/robfletcher/betamax/zipball/master) or [tar](http://github.com/robfletcher/betamax/tarball/master) formats.
-
-You can also clone the project with [Git][git] by running:
-
-	$ git clone git://github.com/robfletcher/betamax
 
 ### Dependencies
 
@@ -333,6 +315,16 @@ Betamax depends on the following libraries (you will need them available on your
 * [JUnit 4][junit]
 
 If your project gets dependencies from a [Maven][maven] repository these dependencies will be automatically included for you.
+
+### Author
+
+* [Rob Fletcher][github]
+
+### Contributors
+
+* [Marcin Erdmann](https://github.com/erdi)
+* [Lari Hotari](https://github.com/lhotari)
+* [Nobuhiro Sue](https://github.com/nobusue)
 
 ### Acknowledgements
 

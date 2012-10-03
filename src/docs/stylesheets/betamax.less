@@ -48,6 +48,14 @@ dt code {
   font-weight: 400;
 }
 
+pre.prettyprint, code.prettyprint {
+  background-color: @grayDark;
+}
+
+dl {
+  .dl-horizontal;
+}
+
 .glow {
   text-shadow: 0 1px 0 rgba(255, 255, 255, .1), 0 0 30px rgba(255, 255, 255, .4);
 }
@@ -72,8 +80,9 @@ dt code {
   width: inherit;
 }
 
-dl {
-  .dl-horizontal;
+.nav {
+  font-family: @headingsFontFamily;
+  font-size: 24px;
 }
 
 .nav-tabs {
@@ -88,6 +97,16 @@ dl {
 
 .documentation {
   .makeRow();
+
+  h2, h3, h4 {
+    margin: 24px 0 12px;
+    line-height: 1.1;
+  }
+
+  h2 { font-size: 48px; }
+  h3 { font-size: 36px; }
+  h4 { font-size: 28px; }
+
   aside {
     .makeColumn(3);
     min-height: 1px;
@@ -95,11 +114,11 @@ dl {
       .sicker;
       h2 {
         font-family: @logoFontFamily;
+        font-size: 30px;
         margin-top: 0;
       }
       .nav-list {
-        font-family: @scriptFontFamily;
-        font-size: 28px;
+        text-transform: uppercase;
         list-style: decimal-leading-zero inside;
         padding: 0
       }
@@ -109,8 +128,7 @@ dl {
     .makeColumn(9);
     h2 {
       .page-header;
-      font-family: @scriptFontFamily;
-      font-size: 48px;
+      text-transform: uppercase;
       margin: 36px 0 24px;
       &:first-child {
         margin-top: 12px;
