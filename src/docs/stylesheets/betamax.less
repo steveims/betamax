@@ -48,6 +48,19 @@ dt code {
   font-weight: 400;
 }
 
+.glow {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .1), 0 0 30px rgba(255, 255, 255, .4);
+}
+
+.sicker {
+  font-family: 'Reenie Beanie', @sansFontFamily;
+  .border-radius(4px);
+  .box-shadow(0 0 3px rgba(0, 0, 0, 0.5));
+  .box-sizing(border-box);
+  padding: 15px;
+  .rotate(1deg);
+}
+
 #forkme {
   position: absolute;
   top: 0;
@@ -55,9 +68,9 @@ dt code {
   border: 0;
 }
 
-nav.affix {
-  top: 0;
-  z-index: -1;
+.affix {
+  top: 15px;
+  width: inherit;
 }
 
 dl {
@@ -77,11 +90,22 @@ dl {
 .documentation {
   .makeRow();
   aside {
-    .makeColumn(2);
+    .makeColumn(3);
     min-height: 1px;
+    nav {
+      .sicker;
+      h2 {
+        margin-top: 0;
+      }
+      .nav-list {
+        font-size: 28px;
+        list-style: decimal-leading-zero inside;
+        padding: 0
+      }
+    }
   }
   section {
-    .makeColumn(10);
+    .makeColumn(9);
     h2 {
       .page-header;
       &:first-child {
@@ -103,10 +127,13 @@ header {
     background-image: url(../images/stripes.png);
     background-position: -50px 0;
     background-repeat: no-repeat;
+    background-color: transparent;
     .background-size(contain);
-    .box-shadow(0 1px 0 rgba(255, 255, 255, 0.1), 0 0 30px rgba(255, 255, 255, 0.4));
+    padding: 0;
     h1 {
       font-size: 80px;
+      color: @black;
+      .glow;
     }
   }
 
