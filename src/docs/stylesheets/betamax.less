@@ -84,7 +84,6 @@ dl {
   border-color: #111;
   .border-radius(4px);
   .box-shadow(0 0 3px rgba(0, 0, 0, 0.5));
-  .rotate(1deg);
 }
 
 .sticker-horizontal {
@@ -146,6 +145,7 @@ dl {
     min-height: 1px;
     nav {
       .sticker;
+      .rotate(1deg);
       h2 {
         background-color: #111;
         color: @grayLighter;
@@ -175,6 +175,17 @@ dl {
       &:first-child {
         margin-top: 12px;
       }
+      &:first-of-type { .rotate(-0.25deg); }
+      &:nth-of-type(2) { .rotate(-0.5deg); }
+      &:nth-of-type(3) { .rotate(0.25deg); }
+      &:nth-of-type(4) { .rotate(-0.25deg); }
+      &:nth-of-type(4) { .rotate(-0.75deg); }
+      &:nth-of-type(5) { .rotate(0.5deg); }
+      &:nth-of-type(6) { .rotate(-0.25deg); }
+      &:nth-of-type(7) { .rotate(-0.75deg); }
+      &:nth-of-type(8) { .rotate(1deg); }
+      &:nth-of-type(9) { .rotate(0.25deg); }
+      &:nth-of-type(10) { .rotate(0.5deg); }
     }
   }
 }
