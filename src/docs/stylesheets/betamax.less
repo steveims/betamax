@@ -75,7 +75,9 @@ dl {
   text-shadow: 0 1px 0 fadeout(@color, 90%), 0 0 30px fadeout(@color, 60%);
 }
 
-.sicker {
+.sticker {
+  font-family: @scriptFontFamily;
+  text-transform: uppercase;
   background-color: @white;
   .border-radius(4px);
   .box-shadow(0 0 3px rgba(0, 0, 0, 0.5));
@@ -118,16 +120,13 @@ dl {
     line-height: 1.1;
   }
 
-  h2 { font-size: 48px; }
-  h3 { font-size: 36px; }
-  h4 { font-size: 28px; }
-
   aside {
     .makeColumn(3);
     min-height: 1px;
     nav {
-      .sicker;
+      .sticker;
       h2 {
+        text-transform: none;
         font-family: @logoFontFamily;
         font-size: 30px;
         margin-top: 0;
@@ -142,11 +141,23 @@ dl {
   section {
     .makeColumn(9);
     h2 {
-      .page-header;
-      text-transform: uppercase;
+      .sticker;
+      font-size: 48px;
       margin: 36px 0 24px;
+      position: relative;
       &:first-child {
         margin-top: 12px;
+      }
+      &:after {
+        position: absolute;
+        right: 32px;
+        color: @grayLighter;
+        font-family: @logoFontFamily;
+        font-size: 36px;
+        line-height: 52px;
+        content: "\3b2\20dd";
+        text-transform: none;
+        .rotate(270deg);
       }
     }
   }
