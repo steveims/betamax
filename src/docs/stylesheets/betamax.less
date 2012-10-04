@@ -32,6 +32,12 @@
 @import "bootstrap/hero-unit.less";
 @import "bootstrap/utilities.less";
 
+@import "bootstrap/responsive-utilities.less";
+@import "bootstrap/responsive-1200px-min.less";
+@import "bootstrap/responsive-768px-979px.less";
+@import "bootstrap/responsive-767px-max.less";
+@import "bootstrap/responsive-navbar.less";
+
 /* apply a natural box layout model to all elements http://paulirish.com/2012/box-sizing-border-box-ftw/ */
 * {
   .box-sizing(border-box);
@@ -126,15 +132,12 @@ dl {
 }
 
 .documentation {
-  .makeRow();
-
   h2, h3, h4 {
     margin: 24px 0 12px;
     line-height: 1.1;
   }
 
   #doc-index {
-    .makeColumn(3);
     min-height: 1px;
     nav {
       font-size: 24px;
@@ -161,7 +164,6 @@ dl {
     }
   }
   #doc-content {
-    .makeColumn(9);
     h2 {
       .sticker-horizontal;
       font-size: 48px;
@@ -212,7 +214,7 @@ dl {
 }
 
 header {
-  #gradient > .vertical-three-colors(@grayDarker, @grayDark, 25%, @black);
+  #gradient > .vertical-three-colors(@grayDarker, @grayDark, 25%, #111);
   .box-shadow(0 1px 4px rgba(0,0,0,.065));
   color: @grayLight;
 
@@ -230,25 +232,19 @@ header {
     }
   }
 
-  .promos {
-    .makeRow();
-    .pod {
-      .makeColumn(4);
-      h3 {
-        font-family: @logoFontFamily;
-        font-size: 36px;
-        .emboss;
-      }
-      .icon-rec {
-        .glow(red);
-      }
-      .icon-play {
-        .glow(greenyellow);
-      }
-      .icon-eject {
-        .glow(cyan);
-      }
-    }
+  h3 {
+    font-family: @logoFontFamily;
+    font-size: 36px;
+    .emboss;
+  }
+  .icon-rec {
+    .glow(red);
+  }
+  .icon-play {
+    .glow(greenyellow);
+  }
+  .icon-eject {
+    .glow(cyan);
   }
 }
 
