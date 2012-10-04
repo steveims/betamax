@@ -32,6 +32,15 @@
 @import "bootstrap/hero-unit.less";
 @import "bootstrap/utilities.less";
 
+/* apply a natural box layout model to all elements http://paulirish.com/2012/box-sizing-border-box-ftw/ */
+* {
+  .box-sizing(border-box);
+}
+
+body {
+  background-image: url('../images/brushed_alu.png');
+}
+
 code {
   color: @gray;
   padding: inherit;
@@ -56,14 +65,20 @@ dl {
   .dl-horizontal;
 }
 
-.glow {
-  text-shadow: 0 1px 0 rgba(255, 255, 255, .1), 0 0 30px rgba(255, 255, 255, .4);
+.emboss {
+  color: @black;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .1), 0 0 30px rgba(255, 255, 255, .125);
+}
+
+.glow(@color: @white) {
+  color: @color;
+  text-shadow: 0 1px 0 fadeout(@color, 90%), 0 0 30px fadeout(@color, 60%);
 }
 
 .sicker {
+  background-color: @white;
   .border-radius(4px);
   .box-shadow(0 0 3px rgba(0, 0, 0, 0.5));
-  .box-sizing(border-box);
   padding: 15px;
   .rotate(1deg);
 }
@@ -137,39 +152,49 @@ dl {
   }
 }
 
+.icon-rec:before {
+  content: "\2b24";
+  font-size: 24px;
+  vertical-align: text-top;
+  line-height: 43px;
+}
+
 header {
   #gradient > .vertical-three-colors(@grayDarker, @grayDark, 25%, @black);
   .box-shadow(0 1px 4px rgba(0,0,0,.065));
+  color: @grayLight;
 
   padding-top: 30px;
   padding-bottom: 30px;
   margin-bottom: 30px;
 
   .hero-unit {
-    background-image: url(../images/stripes.png);
-    background-position: -50px 0;
-    background-repeat: no-repeat;
     background-color: transparent;
-    .background-size(contain);
     padding: 0;
     h1 {
       font-family: @logoFontFamily;
       font-size: 80px;
-      color: @black;
-      .glow;
+      .emboss;
     }
   }
 
   .promos {
     .makeRow();
     .pod {
-      .box-sizing(border-box);
       .makeColumn(4);
-      .well;
-      .box-shadow(0 1px 0 rgba(255, 255, 255, 0.1), 0 0 30px rgba(255, 255, 255, 0.4));
       h3 {
         font-family: @logoFontFamily;
         font-size: 36px;
+        .emboss;
+      }
+      .icon-rec {
+        .glow(red);
+      }
+      .icon-play {
+        .glow(greenyellow);
+      }
+      .icon-eject {
+        .glow(cyan);
       }
     }
   }
@@ -179,10 +204,9 @@ footer {
   #gradient > .vertical(@navbarInverseBackgroundHighlight, @navbarInverseBackground);
   margin-top: 24px;
   padding-top: 12px;
-  font-family: @headingsFontFamily;
+  font-family: @logoFontFamily;
   font-size: 20px;
-  color: @black;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, .1), 0 0 30px rgba(255, 255, 255, .125);
+  .emboss;
 
   a {
     color: inherit;
@@ -190,9 +214,16 @@ footer {
     margin-left: 6px;
     .transition(all .2s linear);
     &:hover {
-      color: @navbarInverseLinkColorHover;
       text-decoration: none;
-      text-shadow: 0 1px 0 rgba(255, 255, 255, .1), 0 0 30px rgba(255, 255, 255, .4);
+    }
+    &[href^="http://twitter.com"]:hover {
+      .glow(cyan);
+    }
+    &[href^="https://github.com"]:hover {
+      .glow(greenyellow);
+    }
+    &[href^="http://blog.freeside.co"]:hover {
+      .glow(orange);
     }
   }
 }
