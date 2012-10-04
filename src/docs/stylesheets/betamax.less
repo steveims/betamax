@@ -37,10 +37,15 @@
 @import "bootstrap/responsive-767px-max.less";
 @import "bootstrap/responsive-navbar.less";
 
-/* apply a natural box layout model to all elements http://paulirish.com/2012/box-sizing-border-box-ftw/ */
+// apply a natural box layout model to all elements
+// http://paulirish.com/2012/box-sizing-border-box-ftw/
 * {
   .box-sizing(border-box);
 }
+
+/**
+ * Override some Bootstrap defaults
+ */
 
 body {
   background-image: url('../images/brushed_alu.png');
@@ -75,6 +80,36 @@ dl {
   .dl-horizontal;
 }
 
+.affix, .affix-bottom {
+  top: 15px;
+  width: inherit;
+}
+
+.affix-bottom {
+  position: fixed;
+}
+
+// hide headings in tab panes
+.tab-pane h3 {
+  position: absolute;
+  left: -9999px;
+}
+
+.icon-rec:before {
+  content: "\2b24";
+  font-size: 24px;
+  vertical-align: text-top;
+  line-height: 43px;
+}
+
+/**
+ * Stylistic mixins
+ */
+
+.blackMetal {
+  #gradient > .vertical-three-colors(darken(@grayDarker, 5%), @grayDark, 25%, darken(@grayDarker, 10%));
+}
+
 .emboss {
   color: @black;
   text-shadow: 0 1px 0 rgba(255, 255, 255, .1), 0 0 30px rgba(255, 255, 255, .125);
@@ -91,7 +126,7 @@ dl {
   background-color: @white;
   border-style: solid;
   border-width: 2px;
-  border-color: #111;
+  border-color: @grayDarker;
   .border-radius(4px);
   -webkit-backface-visibility: hidden;
 }
@@ -115,26 +150,16 @@ dl {
   }
 }
 
+/**
+ * Specific page sections
+ */
+
+// GitHub banner
 #forkme {
   position: absolute;
   top: 0;
   right: 0;
   border: 0;
-}
-
-.affix, .affix-bottom {
-  top: 15px;
-  width: inherit;
-}
-
-.affix-bottom {
-  position: fixed;
-}
-
-// hide headings in tab panes
-.tab-pane h3 {
-  position: absolute;
-  left: -9999px;
 }
 
 .documentation {
@@ -154,7 +179,7 @@ dl {
       .sticker;
       .rotate(1deg);
       h2 {
-        background-color: #111;
+        background-color: @grayDarker;
         color: @grayLighter;
         text-transform: none;
         font-family: @logoFontFamily;
@@ -218,15 +243,8 @@ dl {
   }
 }
 
-.icon-rec:before {
-  content: "\2b24";
-  font-size: 24px;
-  vertical-align: text-top;
-  line-height: 43px;
-}
-
 header {
-  #gradient > .vertical-three-colors(@grayDarker, @grayDark, 25%, #111);
+  .blackMetal;
   .box-shadow(0 1px 4px rgba(0,0,0,.065));
   color: @grayLight;
 
@@ -266,7 +284,7 @@ header {
 }
 
 footer {
-  #gradient > .vertical(@navbarInverseBackgroundHighlight, @navbarInverseBackground);
+  .blackMetal;
   margin-top: 24px;
   padding-top: 12px;
   font-family: @logoFontFamily;
