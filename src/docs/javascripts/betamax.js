@@ -38,13 +38,10 @@ $(document).ready(function() {
 			tabs.append(tab);
 		});
 		tabs.insertBefore(this)
-			.wrapAll('<div class="navbar-inner"></div>')
 			.wrapAll('<div class="navbar"></div>')
+			.wrapAll('<div class="navbar-inner"></div>')
 			.find('li:first-child a').tab('show');
 	});
-
-	// activate the first link & tab in each group
-	// $('.nav li:first-child a').tab('show');
 
 	// replace h1 with fancier but less SEO-compliant text
 	$('h1, nav h2').html('&beta;etamax');

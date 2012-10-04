@@ -84,6 +84,7 @@ dl {
   border-color: #111;
   .border-radius(4px);
   .box-shadow(0 0 3px rgba(0, 0, 0, 0.5));
+  -webkit-backface-visibility: hidden;
 }
 
 .sticker-horizontal {
@@ -179,6 +180,26 @@ dl {
       &:nth-of-type(9) { .rotate(0.25deg); }
       &:nth-of-type(10) { .rotate(0.5deg); }
     }
+
+    .navbar {
+      margin-bottom: 0;
+      .navbar-inner {
+        .border-radius(4px 4px 0 0);
+      }
+    }
+
+    .tab-content {
+      .well;
+      .border-radius(0 0 4px 4px);
+      border-top: none;
+    }
+
+    .tab-pane {
+      > :last-child {
+        margin-bottom: 0;
+      }
+    }
+
   }
 }
 
