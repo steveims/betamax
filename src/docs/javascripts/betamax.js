@@ -24,7 +24,7 @@ $(document).ready(function() {
 
 	// for each tab container, create nav links
 	$('.tab-content').each(function() {
-		var tabs = $('<ul class="nav nav-tabs"></ul>');
+		var tabs = $('<ul class="nav"></ul>');
 		$(this).children().each(function() {
 			var tab = $('<li></li>');
 			tab.append($('<a></a>', {
@@ -37,11 +37,14 @@ $(document).ready(function() {
 			}).data('toggle', 'tab'));
 			tabs.append(tab);
 		});
-		tabs.insertBefore(this);
+		tabs.insertBefore(this)
+			.wrapAll('<div class="navbar-inner"></div>')
+			.wrapAll('<div class="navbar"></div>')
+			.find('li:first-child a').tab('show');
 	});
 
 	// activate the first link & tab in each group
-	$('.nav-tabs li:first-child a').tab('show');
+	// $('.nav li:first-child a').tab('show');
 
 	// replace h1 with fancier but less SEO-compliant text
 	$('h1, nav h2').html('&beta;etamax');
