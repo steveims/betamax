@@ -4,8 +4,6 @@ $(document).ready(function() {
 	$('pre').addClass('prettyprint');
 	prettyPrint();
 
-	// wrap containers around each tab group
-
 	// wrap each tab in a .tab-pane
 	$('#maven, #gradle, #grails, #junit, #spock').each(function() {
 		$(this).nextUntil('h1, h2, h3').andSelf().wrapAll('<div class="tab-pane"></div>');
@@ -22,7 +20,7 @@ $(document).ready(function() {
 		$(this).nextUntil(':not(.tab-pane)').andSelf().wrapAll('<div class="tab-content"></div>');
 	});
 
-	// for each tab container, create nav links
+	// create a navbar for each tab container
 	$('.tab-content').each(function() {
 		var tabs = $('<ul class="nav"></ul>');
 		$(this).children().each(function() {
@@ -46,15 +44,10 @@ $(document).ready(function() {
 	// replace h1 with fancier but less SEO-compliant text
 	$('h1, nav h2').html('&beta;etamax');
 
-	// make teaser blocks even height
-	var forceEvenTeaserHeights = function() {
-		var maxTeaserHeight = 0;
-		$('.teaser').each(function() {
-			maxTeaserHeight = Math.max(maxTeaserHeight, $(this).height());
-		});
-		$('.teaser').css('minHeight', maxTeaserHeight);
-	};
-	$(window).resize(forceEvenTeaserHeights);
+	// affix nav
+	$('#doc-index nav').affix({
+		offset: $('header.jumbotron').outerHeight(true) - 15
+	});
 
 	// FOUC prevention
 	$(window).load(function() {
