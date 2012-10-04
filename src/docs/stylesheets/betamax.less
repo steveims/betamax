@@ -197,6 +197,13 @@ dl {
         li {
           border-bottom: 1px solid @tableBorder;
         }
+        a {
+          color: @grayDarker;
+        }
+        > .active > a,
+        > .active > a:hover {
+          background-color: @grayLight;
+        }
       }
     }
   }
