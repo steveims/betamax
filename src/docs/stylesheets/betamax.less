@@ -44,6 +44,10 @@
 
 body {
   background-image: url('../images/brushed_alu.png');
+  @media (max-width: 767px) {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 code {
@@ -131,6 +135,10 @@ dl {
 }
 
 .documentation {
+  @media (max-width: 767px) {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
   h2, h3, h4 {
     margin: 24px 0 12px;
     line-height: 1.1;
@@ -153,9 +161,11 @@ dl {
       }
       .nav-list {
         text-transform: uppercase;
-        list-style: decimal-leading-zero inside;
         padding: 0;
         margin: 15px;
+        @media (min-width: 980px) {
+          list-style: decimal-leading-zero inside;
+        }
         li {
           border-bottom: 1px solid @tableBorder;
         }
@@ -221,6 +231,11 @@ header {
   padding-bottom: 30px;
   margin-bottom: 30px;
 
+  @media (max-width: 767px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
   .hero-unit {
     background-color: transparent;
     padding: 0;
@@ -254,6 +269,11 @@ footer {
   font-family: @logoFontFamily;
   font-size: 20px;
   .emboss;
+
+  @media (max-width: 767px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 
   a {
     color: inherit;
