@@ -27,7 +27,7 @@
 
     	<link rel="author" href="humans.txt">
 	</head>
-	<body>
+	<body data-spy="scroll" data-target="#doc-index">
 
 	<a href="http://git.io/betamax">
 		<img alt="Fork me on GitHub" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" id="forkme">
@@ -58,7 +58,7 @@
 
     <div class="container">
         <div class="documentation">
-            <aside>
+            <aside id="doc-index">
                 <nav data-spy="affix" data-offset-top="445">
                     <h2 id="logo">Betamax</h2>
                     <ul class="nav nav-list">
@@ -67,8 +67,8 @@
                         <li><a href="#installation">Installation</a></li>
                         <li><a href="#usage">Usage</a></li>
                         <li><a href="#compatibility">Compatibility</a></li>
-                        <li><a href="#configuration">Configuration</a></li>
                         <li><a href="#https">HTTPS</a></li>
+                        <li><a href="#configuration">Configuration</a></li>
                         <li><a href="#caveats">Caveats</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#examples">Examples</a></li>
@@ -76,7 +76,7 @@
                 </nav>
             </aside>
 
-            <section>
+            <section id="doc-content">
                 {{ content }}
             </section>
         </div>
