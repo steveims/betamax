@@ -79,10 +79,31 @@ dl {
   font-family: @scriptFontFamily;
   text-transform: uppercase;
   background-color: @white;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #111;
   .border-radius(4px);
   .box-shadow(0 0 3px rgba(0, 0, 0, 0.5));
-  padding: 15px;
   .rotate(1deg);
+}
+
+.sticker-horizontal {
+  .sticker;
+  border-right-width: 48px;
+  position: relative;
+  padding: 15px;
+  &:after {
+    position: absolute;
+    right: -52px;
+    color: @grayLighter;
+    font-family: @logoFontFamily;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 52px;
+    content: "\3b2 eta";
+    text-transform: none;
+    .rotate(270deg);
+  }
 }
 
 #forkme {
@@ -126,38 +147,33 @@ dl {
     nav {
       .sticker;
       h2 {
+        background-color: #111;
+        color: @grayLighter;
         text-transform: none;
         font-family: @logoFontFamily;
         font-size: 30px;
         margin-top: 0;
+        padding: 8px 12px 12px;
       }
       .nav-list {
         text-transform: uppercase;
         list-style: decimal-leading-zero inside;
-        padding: 0
+        padding: 0;
+        margin: 15px;
+        li {
+          border-bottom: 1px solid @tableBorder;
+        }
       }
     }
   }
   section {
     .makeColumn(9);
     h2 {
-      .sticker;
+      .sticker-horizontal;
       font-size: 48px;
       margin: 36px 0 24px;
-      position: relative;
       &:first-child {
         margin-top: 12px;
-      }
-      &:after {
-        position: absolute;
-        right: 32px;
-        color: @grayLighter;
-        font-family: @logoFontFamily;
-        font-size: 36px;
-        line-height: 52px;
-        content: "\3b2\20dd";
-        text-transform: none;
-        .rotate(270deg);
       }
     }
   }
