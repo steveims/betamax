@@ -64,6 +64,34 @@ enum MatchRule implements Comparator<Request> {
 			a.uri.fragment <=> b.uri.fragment
 		}
 	},
+	header_accept {
+		@Override
+		int compare(Request a, Request b) {
+		        String name = 'accept'
+			getHeaderValue(name, a) <=> getHeaderValue(name, b)
+		}
+	},
+	header_authorization {
+		@Override
+		int compare(Request a, Request b) {
+		        String name = 'authorization'
+			getHeaderValue(name, a) <=> getHeaderValue(name, b)
+		}
+	},
+	header_contentlength {
+		@Override
+		int compare(Request a, Request b) {
+		        String name = 'content-length'
+			getHeaderValue(name, a) <=> getHeaderValue(name, b)
+		}
+	},
+	header_contenttype {
+		@Override
+		int compare(Request a, Request b) {
+		        String name = 'content-type'
+			getHeaderValue(name, a) <=> getHeaderValue(name, b)
+		}
+	},
 	headers {
 		@Override
 		int compare(Request a, Request b) {
@@ -92,5 +120,14 @@ enum MatchRule implements Comparator<Request> {
 
 	int compare(Request a, Request b) {
 		throw new UnsupportedOperationException()
+	}
+
+	// Header names are case-insensitive
+	String getHeaderValue(String name, Request r) {
+	        String key = r.headers.keySet().find {
+		        it.toLowerCase() == name
+		}
+
+		key ? r.headers[key] : null
 	}
 }
